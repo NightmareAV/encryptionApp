@@ -12,7 +12,6 @@ using System.Windows.Input;
 
 namespace encryptionWPF
 {
-
     class MainViewModel : INotifyPropertyChanged
     {
         public MainViewModel()
@@ -77,7 +76,7 @@ namespace encryptionWPF
                 firstFile = openFileDialog.FileName;
                 FirstFileText = File.ReadAllText(openFileDialog.FileName);
             }
-                
+
         }
         private bool LoadFileCanExecute()
         {
@@ -137,11 +136,11 @@ namespace encryptionWPF
         private bool EncryptionTextCanExecute(object parameter)
         {
             var passwordBox = parameter as PasswordBox;
-            if (string.IsNullOrEmpty(passwordBox.Password) || string.IsNullOrEmpty(FirstFileText) 
+            if (string.IsNullOrEmpty(passwordBox.Password) || string.IsNullOrEmpty(FirstFileText)
                 || string.IsNullOrEmpty(secondFile))
             {
                 return false;
-            } 
+            }
             else
                 return true;
         }
@@ -162,7 +161,7 @@ namespace encryptionWPF
             if (checkKey())
             {
                 File.WriteAllText(thirdFile, str2);
-            } 
+            }
             else
             {
                 attempts--;
